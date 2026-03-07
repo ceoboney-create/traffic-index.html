@@ -4,53 +4,198 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>14-DAY TRAFFIC BLITZ | FGG REPFAM</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #FFD700; --bg: #050505; --card: #111; }
-        body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 20px; }
-        .container { max-width: 600px; margin: 0 auto; }
-        header { text-align: center; padding: 40px 0; border-bottom: 2px solid var(--gold); }
-        h1 { font-family: 'Oswald', sans-serif; font-size: 3rem; text-transform: uppercase; margin: 0; }
-        .day-card { background: var(--card); border: 1px solid #222; border-radius: 8px; padding: 20px; margin: 15px 0; cursor: pointer; }
-        .day-card:hover { border-color: var(--gold); }
-        .day-num { color: var(--gold); font-weight: 900; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
-        .task { font-size: 1.1rem; margin-top: 5px; font-weight: 600; }
-        .desc { font-size: 0.9rem; color: #888; margin-top: 8px; display: none; }
+        :root { --gold: #FFD700; --bg: #050505; --card: #111; --border: #222; }
+        * { box-sizing: border-box; transition: all 0.2s ease; }
+        body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 20px; line-height: 1.5; }
+        .container { max-width: 600px; margin: 0 auto; padding-bottom: 80px; }
+        
+        header { text-align: center; padding: 60px 0 40px; border-bottom: 2px solid var(--gold); margin-bottom: 30px; }
+        h1 { font-family: 'Oswald', sans-serif; font-size: 3.5rem; text-transform: uppercase; margin: 0; line-height: 0.9; }
+        .subtitle { letter-spacing: 4px; color: var(--gold); font-weight: 900; font-size: 0.8rem; margin-top: 10px; }
+
+        /* Progress Tracker */
+        .progress-container { 
+            background: #000; padding: 15px; border-radius: 8px; margin-bottom: 30px; 
+            position: sticky; top: 10px; z-index: 100; border: 1px solid var(--gold);
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        #progress-text { font-weight: 900; font-size: 0.9rem; text-transform: uppercase; }
+        .bar-bg { background: #222; height: 10px; width: 60%; border-radius: 5px; overflow: hidden; }
+        #bar-fill { background: var(--gold); height: 100%; width: 0%; transition: 0.5s width; }
+
+        /* Day Cards */
+        .day-card { 
+            background: var(--card); border: 1px solid var(--border); border-radius: 8px; 
+            padding: 25px; margin: 15px 0; cursor: pointer; position: relative;
+        }
+        .day-card:hover { border-color: var(--gold); transform: translateX(5px); }
+        .day-num { color: var(--gold); font-weight: 900; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; }
+        .task { font-size: 1.2rem; margin-top: 8px; font-weight: 700; color: #eee; }
+        .desc { font-size: 0.95rem; color: #888; margin-top: 12px; display: none; border-top: 1px solid #222; padding-top: 10px; }
+        
+        /* Interactive States */
         .active .desc { display: block; }
-        .check { float: right; width: 20px; height: 20px; border: 2px solid #333; border-radius: 4px; }
+        .active { border-color: var(--gold) !important; background: #161616; }
+        
+        .check { 
+            float: right; width: 24px; height: 24px; border: 2px solid #333; 
+            border-radius: 4px; display: flex; align-items: center; justify-content: center;
+        }
         .active .check { background: var(--gold); border-color: var(--gold); }
-        .cta { background: var(--gold); color: #000; text-align: center; padding: 20px; text-decoration: none; font-weight: 900; display: block; border-radius: 4px; margin-top: 40px; }
+        .active .check::after { content: "✓"; color: #000; font-weight: 900; }
+
+        .cta { 
+            background: var(--gold); color: #000; text-align: center; padding: 25px; 
+            text-decoration: none; font-weight: 900; display: block; border-radius: 4px; 
+            margin-top: 50px; font-size: 1.3rem; text-transform: uppercase;
+        }
+        .cta:hover { background: #fff; transform: scale(1.02); }
+
+        footer { text-align: center; margin-top: 60px; color: #444; font-size: 0.8rem; letter-spacing: 1px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>TRAFFIC BLITZ</h1>
-            <p>14 DAYS TO INDUSTRIAL VELOCITY</p>
-        </header>
 
-        <div class="day-card" onclick="this.classList.toggle('active')">
-            <div class="check"></div>
-            <div class="day-num">Day 1: The Intel Extraction</div>
-            <div class="task">NotebookLM Niche Scrape</div>
-            <div class="desc">Identify 50+ sources. Find the "Guru Tax" pain points your audience is searching for right now.</div>
-        </div>
+<div class="container">
+    <header>
+        <h1>TRAFFIC BLITZ</h1>
+        <p class="subtitle">14 DAYS TO INDUSTRIAL VELOCITY</p>
+    </header>
 
-        <div class="day-card" onclick="this.classList.toggle('active')">
-            <div class="check"></div>
-            <div class="day-num">Day 2: The Hub Anchor</div>
-            <div class="task">Publish Your Manifesto</div>
-            <div class="desc">Deploy your high-level "Anti-Rent" philosophy to your Blogger Hub.</div>
-        </div>
-
-        <div class="day-card" onclick="this.classList.toggle('active')">
-            <div class="check"></div>
-            <div class="day-num">Day 3: The Short-Form Spark</div>
-            <div class="task">Record 3 "Pattern Interrupt" Shorts</div>
-            <div class="desc">Use the scripts we drafted. Hook them with the "Savage Math."</div>
-        </div>
-
-        <a href="https://lllpg.com/mn62kcgt/" class="cta">DEPLOY MY 72-HOUR FORTRESS</a>
+    <div class="progress-container">
+        <div id="progress-text">BLITZ PROGRESS: <span id="percent">0</span>%</div>
+        <div class="bar-bg"><div id="bar-fill"></div></div>
     </div>
+
+    <!-- WEEK 1: THE FOUNDATION -->
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 1: Intel Extraction</div>
+        <div class="task">NotebookLM Niche Scrape</div>
+        <div class="desc">Identify 50+ sources. Find the "Guru Tax" pain points your audience is searching for right now. Save these as your "Trigger Keywords."</div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 2: The Hub Anchor</div>
+        <div class="task">Publish Your Manifesto</div>
+        <div class="desc">Deploy your high-level "Anti-Rent" philosophy to your Blogger Hub. This is the "Safe House" where all traffic eventually lands.</div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 3: The Spark</div>
+        <div class="task">3 "Pattern Interrupt" Shorts</div>
+        <div class="desc">Film 3 vertical videos. Hook: "Why your business is actually a rental." Point them to the link in bio (Your $1 Engine).</div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 4: Savage Math</div>
+        <div class="task">The "Guru vs. Sovereign" Chart</div>
+        <div class="desc">Post a carousel or image comparing $5k/year software costs vs. your $101 one-time stack. Math doesn't lie.</div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 5: SEO Saturation</div>
+        <div class="task">5 AI-Assisted Spoke Posts</div>
+        <div class="desc">Use Gemini to write 5 tactical "How-to" posts on Blogger. Each one must link back to your Day 2 Manifesto.</div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 6: The Email Bridge</div>
+        <div class="task">SendSteed Day 0 Blast</div>
+        <div class="desc">Ensure your "Welcome Email" is live. Check your LeadsLeap stats to see who is opening. These are your "Hot Leads."</div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 7: Audit & Adjust</div>
+        <div class="task">The Factory Inspection</div>
+        <div class="desc">Check your Netlify analytics. Which "Spoke" post got the most hits? Double down on that topic tomorrow.</div>
+    </div>
+
+    <!-- WEEK 2: THE SIEGE -->
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 8: Digital Seeding</div>
+        <div class="task">20 Value-First Comments</div>
+        <div class="desc">Find 20 big accounts in your niche. Leave "Industrial Intelligence" comments (no links). Build the authority first.</div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 9: Case Study Push</div>
+        <div class="task">"How I Built This" Thread</div>
+        <div class="desc">Post a thread (X or IG) showing the backend of your Netlify/GitHub stack. People fear tech—show them it's easy.</div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 10: Retargeting Hook</div>
+        <div class="task">The "Ghost Hit" Reminder</div>
+        <div class="desc">Email your list: "Still paying rent on your funnel?" Offer the $100 Build Slot as the "Get Out of Jail Free" card.</div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 11: Community Siege</div>
+        <div class="task">Forum/Reddit Infiltration</div>
+        <div class="desc">Find "Help" threads where people complain about software costs. Offer your Zero-Rent Blueprint as a solution.</div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 12: Scarcity Protocol</div>
+        <div class="task">The "4 Slots Left" Warning</div>
+        <div class="desc">Post on your stories/feed. Your 72-hour build slots for the week are almost gone. Force the decision.</div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 13: Friction Audit</div>
+        <div class="task">Mobile UX Sweep</div>
+        <div class="desc">Open your site on 3 different phones. Is the Lead Magnet easy to click? Fix any friction. Speed is currency.</div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="check"></div>
+        <div class="day-num">Day 14: Sovereignty Day</div>
+        <div class="task">The Final Call to Action</div>
+        <div class="desc">Live Video or Long-form Post: "The Factory is Open." Direct all traffic to your $100 "Headquarters" checkout.</div>
+    </div>
+
+    <a href="https://lllpg.com/mn62kcgt/" class="cta">DEPLOY MY 72-HOUR FORTRESS</a>
+
+    <footer>
+        © 2026 FGG REPFAM | OWN THE ROAD.
+    </footer>
+</div>
+
+<script>
+    function toggleDay(card) {
+        card.classList.toggle('active');
+        updateProgress();
+    }
+
+    function updateProgress() {
+        const total = document.querySelectorAll('.day-card').length;
+        const completed = document.querySelectorAll('.day-card.active').length;
+        const percentage = Math.round((completed / total) * 100);
+        
+        document.getElementById('percent').innerText = percentage;
+        document.getElementById('bar-fill').style.width = percentage + '%';
+        
+        if(percentage === 100) {
+            document.getElementById('progress-text').innerText = "BLITZ COMPLETE. DEPLOY NOW.";
+            document.getElementById('progress-text').style.color = "var(--gold)";
+        }
+    }
+</script>
+
 </body>
 </html>
