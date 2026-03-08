@@ -18,9 +18,9 @@
     --blue: #38bdf8;
     --text: #ededf5;
     --muted: #5a5a7a;
-    /* UPGRADE: Tinted Red Glass Variables */
+    /* SAVAGE UPGRADE: Tinted Red Glass */
     --red-glass: rgba(255, 40, 40, 0.08);
-    --red-border: rgba(255, 68, 68, 0.25);
+    --red-border: rgba(255, 68, 68, 0.3);
   }
   
   * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -75,7 +75,7 @@
   }
   .hero h1 .gold { color: var(--gold); }
   
-  /* UPGRADE: Simi-Hover Stats */
+  /* SIMI-HOVER STATS */
   .hero-stats { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
   .h-stat {
     background: var(--card); border: 1px solid var(--border);
@@ -83,7 +83,10 @@
   }
   .h-stat:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-  /* UPGRADE: Simi-Hover Scroll Button */
+  .h-stat .s-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold); line-height: 1; }
+  .h-stat .s-lab { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; }
+  
+  /* SIMI-HOVER BUTTON */
   .scroll-btn {
     display: inline-flex; align-items: center; gap: 0.6rem;
     background: var(--gold); color: #000;
@@ -96,7 +99,7 @@
     box-shadow: 0 12px 25px rgba(245, 200, 66, 0.2); 
   }
 
-  /* UPGRADE: Tinted Red Glass Sections */
+  /* RED GLASS SECTIONS */
   .red-glass-box {
     background: var(--red-glass);
     backdrop-filter: blur(10px);
@@ -117,14 +120,15 @@
   }
   .problem-list li:hover { border-color: var(--red); transform: translateX(10px); }
 
-  /* CHECKLIST & PROGRESS */
+  /* PROGRESS TRACKER */
   .progress-window {
     position: sticky; top: 80px; z-index: 500;
     background: rgba(9, 9, 15, 0.9); backdrop-filter: blur(12px);
     padding: 1rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem;
   }
-  .prog-fill { height: 100%; background: var(--gold); box-shadow: 0 0 15px var(--gold); width: 0%; transition: width 0.5s ease; }
+  .prog-fill { height: 100%; background: var(--gold); box-shadow: 0 0 15px var(--gold); width: 0%; }
 
+  /* CHECKLIST */
   .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
   .checklist li {
     padding: 1.5rem; background: var(--card); border: 1px solid var(--border);
@@ -139,12 +143,15 @@
   }
   .done .c-box { background: var(--green); border-color: var(--green); }
 
-  /* UPGRADE: Subliminal Strike Logic Display */
+  /* SUBLIMINAL STRIKE ZONE */
   .strike-zone {
     margin-top: 1rem; padding: 1rem; background: #000;
     border: 1px dashed var(--gold); border-radius: 6px; display: none;
+    font-size: 0.8rem;
   }
   .active .strike-zone { display: block; }
+  .strike-zone a { color: var(--gold); font-weight: 900; text-decoration: underline; }
+
 </style>
 </head>
 <body>
@@ -152,7 +159,7 @@
 <nav class="top-nav">
   <div class="nav-logo">FreeGameGuys</div>
   <div class="nav-links">
-    <a href="#problem">Problem</a>
+    <a href="#problem">The Problem</a>
     <a href="#modules">Modules</a>
     <a href="#roadmap">14-Day Blitz</a>
     <a href="https://llclick.com/fxdvckmy/">$1 Deal</a>
@@ -163,14 +170,14 @@
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">FreeGameGuys // The Traffic Target System</div>
-    <h1>THE <span class="gold">TRAFFIC</span><br/>TARGET SYSTEM</h1>
-    <p class="hero-sub" style="color:#8888aa; max-width:600px; margin-bottom:2rem;">A complete operating system for generating consistent, targeted traffic — without paid ads, viral luck, or algorithm chasing.</p>
+    <div class="hero-eyebrow">FreeGameGuys // Infrastructure Sovereignty</div>
+    <h1>THE 14-DAY <span class="gold">BLITZ</span></h1>
+    <p class="hero-sub" style="color:#8888aa; max-width:600px; margin-bottom:2rem;">Your complete operating system for generating consistent, targeted traffic — without paid ads or algorithm chasing.</p>
     
     <div class="hero-stats">
       <div class="h-stat"><div class="s-val">$0</div><div class="s-lab">Ad Spend</div></div>
-      <div class="h-stat"><div class="s-val">14</div><div class="s-lab">Day Blitz</div></div>
-      <div class="h-stat"><div class="s-val">4</div><div class="s-lab">Modules</div></div>
+      <div class="h-stat"><div class="s-val">14</div><div class="s-lab">Step Sprint</div></div>
+      <div class="h-stat"><div class="s-val">4</div><div class="s-lab">OS Modules</div></div>
     </div>
     
     <a href="#roadmap" class="scroll-btn">Initialize Blitz →</a>
@@ -183,7 +190,7 @@
     <div class="s-title">You Don't Have a <span style="color:var(--red)">Traffic Problem.</span></div>
     <ul class="problem-list">
       <li><span style="color:var(--red); font-weight:900;">✗</span> Posting daily with no central destination for traffic to land.</li>
-      <li><span style="color:var(--red); font-weight:900;">✗</span> Sending cold traffic straight to a sales page people aren't ready for.</li>
+      <li><span style="color:var(--red); font-weight:900;">✗</span> Sending cold traffic straight to a sales page people aren't ready for yet.</li>
       <li><span style="color:var(--red); font-weight:900;">✗</span> Chasing trends instead of building evergreen traffic systems.</li>
     </ul>
 
@@ -197,17 +204,15 @@
   </div>
 </section>
 
-<!-- MODULES (All 4 Kept exactly the same) -->
+<!-- MODULES -->
 <section class="section" id="modules" style="background:var(--surface); border-top:1px solid var(--border);">
     <div class="section-inner">
         <div class="s-title">The <span class="gold">OS</span> Architecture</div>
-        <p style="margin-bottom:3rem; color:#8888aa;">Not tactics. Not hacks. A mechanical system with four parts.</p>
-        <!-- Original modules logic remains in text -->
-        <div style="display:grid; gap:2rem;">
-            <div class="red-glass-box"><strong>Module 1: The Anchor</strong> - Your high-value destination.</div>
-            <div class="red-glass-box"><strong>Module 2: The Distribution</strong> - 1 Anchor into 10+ Hooks.</div>
-            <div class="red-glass-box"><strong>Module 3: The Authority</strong> - Browsers to Buyers.</div>
-            <div class="red-glass-box"><strong>Module 4: The Loop</strong> - Win. Screenshot. Scale.</div>
+        <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+            <div class="red-glass-box"><strong>Module 1: The Anchor</strong> - Your high-value permanent destination.</div>
+            <div class="red-glass-box"><strong>Module 2: The Distribution</strong> - Deconstructing 1 Anchor into 10+ Hooks.</div>
+            <div class="red-glass-box"><strong>Module 3: The Authority</strong> - Positioning yourself as the primary solution.</div>
+            <div class="red-glass-box"><strong>Module 4: The Loop</strong> - Win. Screenshot. Scale. Repeat.</div>
         </div>
     </div>
 </section>
@@ -219,7 +224,7 @@
     
     <!-- PROGRESS TRACKER -->
     <div class="progress-window red-glass-box">
-        <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:8px;">
+        <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:8px; font-family:'JetBrains Mono';">
             <span>BLITZ COMPLETION</span>
             <span id="prog-text">0%</span>
         </div>
@@ -237,48 +242,50 @@
             <p style="font-size:0.85rem; color:#888;">Choose your one offer. Write what it does in one sentence. No fluff.</p>
             <div class="strike-zone">
                 <span style="color:var(--gold); font-weight:900;">REPFAM STRIKE:</span> Access AI Search Hustle Guide 
-                <a href="https://shop.beacons.ai/freegameguys/d3dba569-ccbc-486c-81d9-b9f27fc2d777" style="color:var(--gold);">[$5 Standalone]</a> or 
-                <a href="https://llclick.com/fxdvckmy/" style="color:var(--green); font-weight:900;">[Get Full Factory for $1]</a>
+                <a href="https://shop.beacons.ai/freegameguys/d3dba569-ccbc-486c-81d9-b9f27fc2d777" target="_blank">[$5 Standalone]</a> or 
+                <a href="https://llclick.com/fxdvckmy/" target="_blank" style="color:var(--green);">[Get Full Factory for $1]</a>
             </div>
         </div>
       </li>
 
-      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 2:</strong> Set up your one landing page. One headline. One CTA.</div></li>
-      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 3:</strong> Write your Anchor article. Solve 80% of the problem free.</div></li>
-      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 4:</strong> Pull 10 micro-insights from your Anchor. These are hooks.</div></li>
-      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 5:</strong> Design 5 Pinterest pins using micro-insights as headlines.</div></li>
-      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 6:</strong> Design 5 more pins. Schedule them for the next 48 hours.</div></li>
-      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 7:</strong> Write 3 X/Twitter threads from your remaining insights.</div></li>
-      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 8:</strong> Post Bridge #1 on Reddit. Link to Anchor in comments.</div></li>
-      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 9:</strong> Post Bridge #2 in a Facebook Group. Value post. No pitch.</div></li>
-      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 10:</strong> Post Bridge #3 on LinkedIn. Document your process.</div></li>
-      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 11:</strong> Check analytics. Which hook drove the most clicks?</div></li>
-      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 12:</strong> Double down on the winning hook. Create 5 variations.</div></li>
-      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 13:</strong> Screenshot any win — comment, traffic spike, or sale. Proof.</div></li>
+      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 2: Landing Page</strong><p style="font-size:0.85rem; color:#888;">Set up one headline and one CTA. Zero friction.</p></div></li>
+      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 3: Anchor Article</strong><p style="font-size:0.85rem; color:#888;">Write the deep-dive that solves 80% of the problem free.</p></div></li>
+      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 4: Micro-Insights</strong><p style="font-size:0.85rem; color:#888;">Pull 10 hooks from your Anchor content.</p></div></li>
+      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 5: Visual Hooks</strong><p style="font-size:0.85rem; color:#888;">Design 5 Pinterest pins using your insights.</p></div></li>
+      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 6: Scheduling</strong><p style="font-size:0.85rem; color:#888;">Schedule all 10 pins for the next 48 hours.</p></div></li>
+      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 7: Twitter Threads</strong><p style="font-size:0.85rem; color:#888;">Write 3 X threads from your remaining insights.</p></div></li>
+      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 8: Reddit Bridge</strong><p style="font-size:0.85rem; color:#888;">Post Bridge #1 on Reddit. Link in comments only.</p></div></li>
+      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 9: Facebook Value</strong><p style="font-size:0.85rem; color:#888;">Post Bridge #2 in a targeted FB Group.</p></div></li>
+      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 10: LinkedIn Perspective</strong><p style="font-size:0.85rem; color:#888;">Post Bridge #3. Document your founder process.</p></div></li>
+      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 11: Analytics Check</strong><p style="font-size:0.85rem; color:#888;">Identify which hook drove the most clicks.</p></div></li>
+      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 12: Scaling Hook</strong><p style="font-size:0.85rem; color:#888;">Create 5 variations of the winning hook.</p></div></li>
+      <li onclick="check(this)"><div class="c-box"></div><div class="c-text"><strong>Day 13: Micro-Proof</strong><p style="font-size:0.85rem; color:#888;">Screenshot any win or traffic spike as proof.</p></div></li>
       
       <!-- DAY 14: SUBLIMINAL UPGRADE -->
       <li onclick="check(this)">
         <div class="c-box"></div>
         <div class="c-text">
-            <strong>Day 14: Document & Reset</strong>
-            <p style="font-size:0.85rem; color:#888;">Document what worked. Swap Anchor for next product. Run it again.</p>
+            <strong>Day 14: The Reset</strong>
+            <p style="font-size:0.85rem; color:#888;">Document everything that worked and restart the loop.</p>
             <div class="strike-zone">
                 <span style="color:var(--gold); font-weight:900;">MISSION COMPLETE.</span> Ready to own the infrastructure? 
-                <a href="https://llclick.com/fxdvckmy/" style="color:var(--gold); text-decoration:underline;">[ACTIVATE FULL $1 FACTORY NOW]</a>
+                <a href="https://llclick.com/fxdvckmy/" target="_blank">[ACTIVATE FULL $1 FACTORY NOW]</a>
             </div>
         </div>
       </li>
     </ul>
 
+    <!-- THE $100 DESTINATION -->
     <div style="text-align:center; margin-top:5rem;">
-        <a href="https://lllpg.com/mn62kcgt/" class="scroll-btn" style="width:100%; justify-content:center; padding:1.5rem; font-size:1.2rem;">DEPLOY 72-HOUR FORTRESS ($100)</a>
+        <a href="https://llclick.com/js8mr3z9/" target="_blank" class="scroll-btn" style="width:100%; justify-content:center; padding:1.5rem; font-size:1.2rem;">DEPLOY 72-HOUR FORTRESS ($100)</a>
+        <p style="margin-top:15px; font-size:0.7rem; color:var(--muted); letter-spacing:2px;">STOP RENTING. START OWNING.</p>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="nav-logo" style="margin-bottom:1rem; text-align:center;">FreeGameGuys</div>
-  <p style="text-align:center; color:var(--muted); font-size:0.7rem;">© 2026 INDUSTRIAL LOGIC. NO ADS. NO RENT.</p>
+  <p style="text-align:center; color:var(--muted); font-size:0.7rem;">© 2026 INDUSTRIAL LOGIC. NO ADS. NO GURU TAX.</p>
 </footer>
 
 <script>
